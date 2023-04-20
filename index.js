@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const { createSVG } = require("./svg-generator"); // replace this with the name of your SVG generator module
+const Circle = require("./lib/circle");
 
 //:::::::::::::::::: questions :::::::::::::::::::::::::::
 inquirer
@@ -28,19 +28,21 @@ inquirer
       message: "Enter shape color:",
     },
   ])
-  .then((answers) => {
-    const svg = createSVG(
-      answers.text,
-      answers.textColor,
-      answers.shape,
-      answers.shapeColor
-    );
-    fs.writeFile("logo.svg", svg, (err) => {
-      if (err) {
-        console.error(err);
-      } else {
-        console.log("Generated logo.svg");
-      }
-    });
+  .then(({ text, textColor, shape, shapeColor }) => {
+    console.log(shape);
+    switch (shape) {
+      case "circle":
+        console.log(`The shape is a ${shape}`);
+        const circle = new Circle(text, textColor, shapeColor);
+        console.log(`Returned from circle: ${circle.render()}`);
+        break;
+    }
+    // fs.writeFile("logo.svg", svg, (err) => {
+    //   if (err) {
+    //     console.error(err);
+    //   } else {
+    //     console.log("Generated logo.svg");
+    //   }
+    // });
   })
   .catch((error) => console.error(error));
