@@ -1,0 +1,28 @@
+{
+  "name": "lerobles-svg-logo-maker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robles1999/lerobles-svg-logo-maker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robles1999/lerobles-svg-logo-maker/issues"
+  },
+  "homepage": "https://github.com/robles1999/lerobles-svg-logo-maker#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
