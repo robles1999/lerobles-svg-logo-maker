@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const Circle = require("./lib/circle");
+const Square = require("./lib/square");
 
 //:::::::::::::::::: questions :::::::::::::::::::::::::::
 inquirer
@@ -29,20 +30,22 @@ inquirer
     },
   ])
   .then(({ text, textColor, shape, shapeColor }) => {
+    let svg;
     console.log(shape);
     switch (shape) {
       case "circle":
-        console.log(`The shape is a ${shape}`);
-        const circle = new Circle(text, textColor, shapeColor);
-        console.log(`Returned from circle: ${circle.render()}`);
+        svg = new Circle(text, textColor, shapeColor).render();
+        break;
+      case "square":
+        svg = new Square(text, textColor, shapeColor).render();
         break;
     }
-    // fs.writeFile("logo.svg", svg, (err) => {
-    //   if (err) {
-    //     console.error(err);
-    //   } else {
-    //     console.log("Generated logo.svg");
-    //   }
-    // });
+    fs.writeFile("logo.svg", svg, (err) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log("Generated logo.svg");
+      }
+    });
   })
   .catch((error) => console.error(error));
