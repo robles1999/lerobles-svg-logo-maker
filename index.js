@@ -2,6 +2,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const Circle = require("./lib/circle");
 const Square = require("./lib/square");
+const Triangle = require("./lib/triangle");
 
 //:::::::::::::::::: questions :::::::::::::::::::::::::::
 inquirer
@@ -21,7 +22,7 @@ inquirer
       type: "list",
       name: "shape",
       message: "Choose a shape:",
-      choices: ["circle", "triangle", "square"],
+      choices: ["circle", "square", "triangle"],
     },
     {
       type: "input",
@@ -38,6 +39,9 @@ inquirer
         break;
       case "square":
         svg = new Square(text, textColor, shapeColor).render();
+        break;
+      case "triangle":
+        svg = new Triangle(text, textColor, shapeColor).render();
         break;
     }
     fs.writeFile("logo.svg", svg, (err) => {
