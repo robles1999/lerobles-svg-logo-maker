@@ -32,7 +32,6 @@ inquirer
   ])
   .then(({ text, textColor, shape, shapeColor }) => {
     let svg;
-    console.log(shape);
     switch (shape) {
       case "circle":
         svg = new Circle(text, textColor, shapeColor).render();
