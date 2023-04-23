@@ -2,7 +2,7 @@ const Square = require("../lib/square");
 
 describe("Square", () => {
   it("should take three initials, text color and fill color to generate a logo SVG file in square shape", () => {
-    const [text, textColor, shapeColor] = ["CMR", "white", "green"];
+    const [text, textColor, shapeColor] = ["LER", "white", "green"];
     const square = new Square(text, textColor, shapeColor);
 
     expect(square.render()).toEqual(`

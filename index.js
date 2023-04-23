@@ -30,8 +30,13 @@ inquirer
       message: "Enter shape color:",
     },
   ])
-  .then(({ text, textColor, shape, shapeColor }) => {
+  // ::::: deconstruct the object to pass info to the shape class
+  .then(({ text, textColor, shape, shapeColor }) =>
+  {
+    // ::::: will hold the generated svg tag returned from the selected shape class
     let svg;
+    // ::::: will create a new shape object based on shape selected, make a call
+    // ::::: to the render method and return the svg tag
     switch (shape) {
       case "circle":
         svg = new Circle(text, textColor, shapeColor).render();
@@ -43,6 +48,7 @@ inquirer
         svg = new Triangle(text, textColor, shapeColor).render();
         break;
     }
+    // ::::: generate the logo.svg file and log message to the terminal
     fs.writeFile("logo.svg", svg, (err) => {
       if (err) {
         console.error(err);
