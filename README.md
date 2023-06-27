@@ -27,3 +27,9 @@ To use this command-line application, follow these steps:
 
 ## Video
 [Video Link](https://drive.google.com/file/d/1kjPQA-tOhep2_KyK5ggHUUQLYmmp2RzX/view)
+
+## Technologies
+- JavaScript
+- Node.js
+- Inquirer
+- Jest
